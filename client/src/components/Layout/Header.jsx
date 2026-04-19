@@ -38,7 +38,7 @@ const Header = () => {
             to="/"
             className="text-black font-bold text-2xl tracking-wide hover:scale-105 transition-transform"
           >
-            3legant.
+            Elegant.
           </NavLink>
           <div className="flex items-center lg:hidden">
             <button

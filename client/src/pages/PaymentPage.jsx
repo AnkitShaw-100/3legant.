@@ -70,7 +70,7 @@ const PaymentPage = () => {
 
               <h2 className="text-2xl font-semibold mb-2">Order Placed!</h2>
               <p className="text-gray-600 mb-4">
-                Thanks for shopping with 3legant
+                Thanks for shopping with Elegant
               </p>
 
               <div className="mt-4">
@@ -143,7 +143,7 @@ const PaymentPage = () => {
             <div>
               <div className="bg-white rounded-xl shadow-xl p-6">
                 <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold">3legant</h2>
+                  <h2 className="text-2xl font-bold">Elegant</h2>
                   <p className="text-xs text-gray-500">Order Summary</p>
                 </div>
 

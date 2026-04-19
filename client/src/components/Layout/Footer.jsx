@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
           {/* Brand Section */}
           <div className="flex-1 min-w-[220px]">
-            <div className="text-2xl font-semibold mb-6">3legant.</div>
+            <div className="text-2xl font-semibold mb-6">Elegant.</div>
 
             <div className="mb-6">
               <div className="text-lg mb-1">More than products.</div>
@@ -104,7 +104,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="text-gray-400 text-sm">
-          Copyright © 2023 3legant.
+          Copyright © 2023 Elegant.
           <span className="mx-2">|</span>
           <Link to="/privacy" className="hover:text-gray-200">
             Privacy Policy
