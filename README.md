@@ -1,4 +1,4 @@
-# 3legant. — E‑Commerce 
+# Elegant. — E‑Commerce 
 
 A full-stack e-commerce application with a React (Create React App + Tailwind CSS) frontend and an Express + MongoDB backend. Includes authentication, product and category management, cart and orders, and admin/user dashboards.
 
