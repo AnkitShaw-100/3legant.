@@ -87,16 +87,16 @@ const CreateProduct = () => {
     }
   };
 
-  // const handleEdit = (prod) => {
-  //   setEditId(prod._id);
-  //   setEditProduct({
-  //     name: prod.name,
-  //     description: prod.description,
-  //     price: prod.price,
-  //     category: prod.category?._id || prod.category,
-  //     quantity: prod.quantity,
-  //     shipping: !!prod.shipping,
-  //   });
+  const handleEdit = (prod) => {
+    setEditId(prod._id);
+    setEditProduct({
+      name: prod.name,
+      description: prod.description,
+      price: prod.price,
+      category: prod.category?._id || prod.category,
+      quantity: prod.quantity,
+      shipping: !!prod.shipping,
+    });
   };
 
   const handleEditChange = (e) => {
