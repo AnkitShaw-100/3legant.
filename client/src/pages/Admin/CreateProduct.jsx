@@ -87,6 +87,7 @@ const CreateProduct = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleEdit = (prod) => {
     setEditId(prod._id);
     setEditProduct({

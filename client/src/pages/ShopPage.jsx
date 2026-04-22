@@ -12,6 +12,7 @@ const ShopPage = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState("");
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [mobileFilterSection, setMobileFilterSection] = useState(null);
   const { cart, setCart } = useCart();
   const navigate = useNavigate();
