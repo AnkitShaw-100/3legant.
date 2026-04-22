@@ -11,19 +11,8 @@ const ShopPage = () => {
   const [error, setError] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedPrice, setSelectedPrice] = useState("");
-  const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
-  const [mobileFilterSection, setMobileFilterSection] = useState(null);
   const { cart, setCart } = useCart();
   const navigate = useNavigate();
-
-  const toggleMobileSection = (section) => {
-    if (mobileFilterSection === section) {
-      setMobileFilterOpen((v) => !v);
-    } else {
-      setMobileFilterSection(section);
-      setMobileFilterOpen(true);
-    }
-  };
 
   useEffect(() => {
     const fetchProducts = async () => {

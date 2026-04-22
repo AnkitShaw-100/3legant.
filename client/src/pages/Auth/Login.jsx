@@ -8,7 +8,7 @@ import { useAuth } from "../../context/auth.jsx";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useAuth();
+  useAuth();
 
   const navigate = useNavigate();
 
