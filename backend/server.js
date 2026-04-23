@@ -12,11 +12,22 @@ import cors from 'cors';
 // Configure env
 dotenv.config();
 
-// Connect DB 
-await connectDB();
-
 // Rest object
 const app = express();
+
+// Initialize DB connection once
+let dbConnected = false;
+const initDB = async () => {
+  if (!dbConnected) {
+    try {
+      await connectDB();
+      dbConnected = true;
+    } catch (error) {
+      console.error('Failed to connect to database:', error);
+      throw error;
+    }
+  }
+};
 
 //Middlewares
 app.use(cors({
@@ -51,17 +62,40 @@ app.use('/api/v1/category', categoryRoute);
 app.use('/api/v1/product', productRoute);
 app.use('/api/v1/order', orderRoute);
 
+// Initialize DB before handling requests
+app.use(async (req, res, next) => {
+  try {
+    await initDB();
+    next();
+  } catch (error) {
+    console.error('Database connection error:', error);
+    res.status(500).json({ success: false, message: 'Database connection failed' });
+  }
+});
+
 // Rest APIs
 app.get("/", (req, res) => {
   res.send({ message: "Welcome to my app" });
 });
 
-// Port
-const PORT = process.env.PORT || 8080;
-
-// Run Listen
-app.listen(PORT, () => {
-  console.log(
-    `Server listening in ${process.env.DEV_MODE} mode at port ${PORT}`.bgCyan.white
-  );
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || 'Internal Server Error'
+  });
 });
+
+// Export for Vercel serverless environment
+export default app;
+
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 8080;
+  app.listen(PORT, () => {
+    console.log(
+      `Server listening in ${process.env.DEV_MODE} mode at port ${PORT}`.bgCyan.white
+    );
+  });
+}
