@@ -34,9 +34,7 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
       'http://localhost:3000',
-      'http://localhost:3001',
-      'https://try-elegant.vercel.app',
-      'https://3legant-frontend.vercel.app'
+      'https://try-elegant.vercel.app'
     ];
     
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
@@ -56,12 +54,6 @@ app.use(morgan('dev'));
 // Handle preflight requests
 app.options('*', cors());
 
-// Routes 
-app.use('/api/v1/auth', authRoute);
-app.use('/api/v1/category', categoryRoute);
-app.use('/api/v1/product', productRoute);
-app.use('/api/v1/order', orderRoute);
-
 // Initialize DB before handling requests
 app.use(async (req, res, next) => {
   try {
@@ -72,6 +64,12 @@ app.use(async (req, res, next) => {
     res.status(500).json({ success: false, message: 'Database connection failed' });
   }
 });
+
+// Routes 
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/category', categoryRoute);
+app.use('/api/v1/product', productRoute);
+app.use('/api/v1/order', orderRoute);
 
 // Rest APIs
 app.get("/", (req, res) => {
