@@ -20,7 +20,7 @@ const app = express();
 
 //Middlewares
 app.use(cors({
-  origin:[ 'http://localhost:3000', 'https://try-elegant.vercel.app/'],
+  origin:[ 'http://localhost:3000', 'https://try-elegant.vercel.app'],
   credentials: true
 }));
 app.use(express.json());
