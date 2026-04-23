@@ -20,8 +20,10 @@ const app = express();
 
 //Middlewares
 app.use(cors({
-  origin:[ 'http://localhost:3000', 'https://try-elegant.vercel.app'],
-  credentials: true
+  origin: ['http://localhost:3000', 'https://try-elegant.vercel.app'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 app.use(morgan('dev'));
